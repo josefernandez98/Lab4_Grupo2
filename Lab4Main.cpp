@@ -27,7 +27,6 @@ int main(int argc, char const *argv[]) {
         }
     }
 
-
     int** superior = new int*[3];
     for (int i = 0; i < 3; ++i) {
         superior[i] = new int[3];
@@ -37,7 +36,6 @@ int main(int argc, char const *argv[]) {
             superior[i][j] = 3;
         }
     }
-
 
     int** inferior = new int*[3];
     for (int i = 0; i < 3; ++i) {
@@ -49,7 +47,6 @@ int main(int argc, char const *argv[]) {
         }
     }
 
-
     int** derecha = new int*[3];
     for (int i = 0; i < 3; ++i) {
         derecha[i] = new int[3];
@@ -59,7 +56,6 @@ int main(int argc, char const *argv[]) {
             derecha[i][j] = 5;
         }
     }
-
 
     int** izquierda = new int*[3];
     for (int i = 0; i < 3; ++i) {
