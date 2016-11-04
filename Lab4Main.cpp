@@ -2,7 +2,6 @@
 #include <string>
 
 using namespace std;
-//int** llenarMatriz(int**, int*, int);
 void imprimirMatriz(int, int**, int);
 
 int main(int argc, char const *argv[]) {
@@ -66,9 +65,6 @@ int main(int argc, char const *argv[]) {
             izquierda[i][j] = 6;
         }
     }
-
-
-
 
     return 0;
 }//Fin del main
