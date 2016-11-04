@@ -97,7 +97,7 @@ int main(int argc, char const *argv[]) {
     cout << "Abajo" << endl;
     imprimirMatriz(abajo);
     cout << endl;
-    F(frontal, arriba, izquierda, derecha, abajo);
+    f(frontal, arriba, izquierda, derecha, abajo);
     cout << "Frontal" << endl;
     imprimirMatriz(frontal);
     cout << "Arriba" << endl;
@@ -113,10 +113,6 @@ int main(int argc, char const *argv[]) {
     limpiarMemoria(izquierda);
     limpiarMemoria(derecha);
     limpiarMemoria(atras);
-
-
-
-
     return 0;
 }//Fin del main
 
@@ -182,8 +178,74 @@ void F(int** frente, int** arriba, int** izquierda, int** derecha, int** abajo) 
             }
         }
     }//FOR
+}
+
+void f(int** frente, int** arriba, int** izquierda, int** derecha, int** abajo) {
+    //Principal
+    int fila1[3];
+    int fila2[3];
+    int fila3[3];
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            fila1[j] = frente[0][j];
+            fila2[j] = frente[1][j];
+            fila3[j] = frente[2][j];
+        }
+    }//FOR
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            if (j == 0) {
+                frente[i][j] = fila1[j];
+            }
+            if (j == 1) {
+                frente[i][j] = fila2[j];
+            }
+            if (j == 2) {
+                frente[i][j] = fila3[j];
+            }
+        }
+    }//FOR
+    int terceraFilaArriba[3];
+    int primeraColumnaDerecha[3];
+    int primeraFilaInferior[3];
+    int terceraColumnaIzquierda[3];
+    //arriba
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            if (i == 2) {
+                terceraFilaArriba[j] = arriba[i][j];
+            }
+            if (j == 0){
+                primeraColumnaDerecha[i] = derecha[i][j];
+            }
+            if (i == 0) {
+                primeraFilaInferior[j] = abajo[i][j];
+            }
+            if (j == 2) {
+                terceraColumnaIzquierda[i] = izquierda[i][j];
+            }
+        }
+    }//FOR
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            if (i == 2) {
+                arriba[i][j] = primeraColumnaDerecha[i];
+            }
+            if (j == 0){
+                derecha[i][j] = primeraFilaInferior[j];
+            }
+            if (i == 0) {
+                abajo[i][j] = terceraColumnaIzquierda[i];
+            }
+            if (j == 2) {
+                izquierda[i][j] = terceraFilaArriba[j];
+            }
+        }
+    }//FOR
 
 }
+
+
 
 
 void limpiarMemoria (int** matriz) {
