@@ -2,7 +2,27 @@
 #include <string>
 
 using namespace std;
-void imprimirMatriz(int, int**, int);
+void imprimirMatriz(int**);
+void limpiarMemoria(int**);
+
+void F(int**, int**, int**, int**);
+void f(int**, int**, int**, int**);
+
+void X(int**, int**, int**, int**);
+void x(int**, int**, int**, int**);
+
+void U(int**, int**, int**, int**);
+void u(int**, int**, int**, int**);
+
+void B(int**, int**, int**, int**);
+void b(int**, int**, int**, int**);
+
+void R(int**, int**, int**, int**);
+void r(int**, int**, int**, int**);
+
+void L(int**, int**, int**, int**);
+void l(int**, int**, int**, int**);
+
 
 int main(int argc, char const *argv[]) {
 
@@ -11,7 +31,7 @@ int main(int argc, char const *argv[]) {
         frontal[i] = new int[3];
     }//Fin del for
     for (int i = 0; i < 3; i++) {
-        for (int j = 0; i < 3; j++) {
+        for (int j = 0; j < 3; j++) {
             frontal[i][j] = 1;
         }
     }
@@ -21,7 +41,7 @@ int main(int argc, char const *argv[]) {
         trasera[i] = new int[3];
     }//Fin del for
     for (int i = 0; i < 3; i++) {
-        for (int j = 0; i < 3; j++) {
+        for (int j = 0; j < 3; j++) {
             trasera[i][j] = 2;
         }
     }
@@ -31,7 +51,7 @@ int main(int argc, char const *argv[]) {
         superior[i] = new int[3];
     }//Fin del for
     for (int i = 0; i < 3; i++) {
-        for (int j = 0; i < 3; j++) {
+        for (int j = 0; j < 3; j++) {
             superior[i][j] = 3;
         }
     }
@@ -41,7 +61,7 @@ int main(int argc, char const *argv[]) {
         inferior[i] = new int[3];
     }//Fin del for
     for (int i = 0; i < 3; i++) {
-        for (int j = 0; i < 3; j++) {
+        for (int j = 0; j < 3; j++) {
             inferior[i][j] = 4;
         }
     }
@@ -51,7 +71,7 @@ int main(int argc, char const *argv[]) {
         derecha[i] = new int[3];
     }//Fin del for
     for (int i = 0; i < 3; i++) {
-        for (int j = 0; i < 3; j++) {
+        for (int j = 0; j < 3; j++) {
             derecha[i][j] = 5;
         }
     }
@@ -61,20 +81,37 @@ int main(int argc, char const *argv[]) {
         izquierda[i] = new int[3];
     }//Fin del for
     for (int i = 0; i < 3; i++) {
-        for (int j = 0; i < 3; j++) {
+        for (int j = 0; j < 3; j++) {
             izquierda[i][j] = 6;
         }
     }
 
+    imprimirMatriz(frontal);
+
+    limpiarMemoria(frontal);
+
+
+
+
     return 0;
 }//Fin del main
 
+void limpiarMemoria (int** matriz) {
+    for (int i = 0; i < 3; ++i) {
+        delete[] matriz[i];
+        matriz[i] = NULL;
+    }
+    delete[] matriz;
+    cout << "Matriz borrada." << endl;
+}
 
-void imprimirMatriz(int x, int** matriz) {
+
+void imprimirMatriz(int** matriz) {
 	for (int i = 0; i < 3; i++) {
 		for (int j = 0; j < 3; j++) {
-
+            cout << matriz[i][j];
 		}
 		cout << endl;
 	}
+    cout << endl;
 }
