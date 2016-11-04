@@ -1,5 +1,7 @@
 #include <iostream>
 #include <string>
+#include <stdlib.h>
+#include <time.h>
 
 using namespace std;
 void imprimirMatriz(int**);
@@ -450,7 +452,61 @@ int main(int argc, char const *argv[]) {
             } while (opcion2 != "0");
         }
         if (opcion == 2) {
-
+            int aletorio = 0;
+            srand (time(NULL));
+            for (int i = 0; i < 16; i++) {
+                aletorio = rand() % 12;
+                cout << aletorio << endl;
+                if (aletorio == 0) {
+                    F(frontal, arriba, izquierda, derecha, abajo);
+                }
+                if (aletorio == 1) {
+                    f(frontal, arriba, izquierda, derecha, abajo);
+                }
+                if (aletorio == 2) {
+                    X(atras, arriba, izquierda, derecha, abajo);
+                }
+                if (aletorio == 3) {
+                    x(atras, arriba, izquierda, derecha, abajo);
+                }
+                if (aletorio == 4) {
+                    U(arriba, atras, izquierda, derecha, frontal);
+                }
+                if (aletorio == 5) {
+                    u(arriba, atras, izquierda, derecha, frontal);
+                }
+                if (aletorio == 6) {
+                    B(abajo, atras, izquierda, derecha, frontal);
+                }
+                if (aletorio == 7) {
+                    b(abajo, atras, izquierda, derecha, frontal);
+                }
+                if (aletorio == 8) {
+                    R(derecha, arriba, frontal, atras, abajo);
+                }
+                if (aletorio == 9) {
+                    r(derecha, arriba, frontal, atras, abajo);
+                }
+                if (aletorio == 10) {
+                    L(izquierda, arriba, atras, frontal, abajo);
+                }
+                if (aletorio == 11) {
+                    l(izquierda, arriba, atras, frontal, abajo);
+                }
+            }
+            cout << "Despues del Scramble." << endl;
+            cout << "Frontal" << endl;
+            imprimirMatriz(frontal);
+            cout << "Arriba" << endl;
+            imprimirMatriz(arriba);
+            cout << "Abajo" << endl;
+            imprimirMatriz(abajo);
+            cout << "Izquierda" << endl;
+            imprimirMatriz(izquierda);
+            cout << "Derecha" << endl;
+            imprimirMatriz(derecha);
+            cout << "Atras" << endl;
+            imprimirMatriz(atras);
         }
         if (opcion == 3) {
             cout << "Juego terminado." << endl;
@@ -474,9 +530,15 @@ void F(int** frente, int** arriba, int** izquierda, int** derecha, int** abajo) 
     int fila3[3];
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 3; j++) {
-            fila1[j] = frente[0][j];
-            fila2[j] = frente[1][j];
-            fila3[j] = frente[2][j];
+            if (i == 0) {
+                fila1[j] = frente[0][j];
+            }
+            if (i == 1) {
+                fila2[j] = frente[1][j];
+            }
+            if (i == 2){
+                fila3[j] = frente[2][j];
+            }
         }
     }//FOR
     for (int i = 0; i < 3; i++) {
@@ -538,9 +600,15 @@ void f(int** frente, int** arriba, int** izquierda, int** derecha, int** abajo) 
     int fila3[3];
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 3; j++) {
-            fila1[j] = frente[0][j];
-            fila2[j] = frente[1][j];
-            fila3[j] = frente[2][j];
+            if (i == 0) {
+                fila1[j] = frente[0][j];
+            }
+            if (i == 1) {
+                fila2[j] = frente[1][j];
+            }
+            if (i == 2){
+                fila3[j] = frente[2][j];
+            }
         }
     }//FOR
     for (int i = 0; i < 3; i++) {
@@ -603,9 +671,15 @@ void X(int** frente, int** arriba, int** izquierda, int** derecha, int** abajo) 
     int fila3[3];
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 3; j++) {
-            fila1[j] = frente[0][j];
-            fila2[j] = frente[1][j];
-            fila3[j] = frente[2][j];
+            if (i == 0) {
+                fila1[j] = frente[0][j];
+            }
+            if (i == 1) {
+                fila2[j] = frente[1][j];
+            }
+            if (i == 2){
+                fila3[j] = frente[2][j];
+            }
         }
     }//FOR
     for (int i = 0; i < 3; i++) {
@@ -667,9 +741,15 @@ void x(int** frente, int** arriba, int** izquierda, int** derecha, int** abajo) 
     int fila3[3];
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 3; j++) {
-            fila1[j] = frente[0][j];
-            fila2[j] = frente[1][j];
-            fila3[j] = frente[2][j];
+            if (i == 0) {
+                fila1[j] = frente[0][j];
+            }
+            if (i == 1) {
+                fila2[j] = frente[1][j];
+            }
+            if (i == 2){
+                fila3[j] = frente[2][j];
+            }
         }
     }//FOR
     for (int i = 0; i < 3; i++) {
@@ -732,9 +812,15 @@ void U(int** frente, int** arriba, int** izquierda, int** derecha, int** abajo) 
     int fila3[3];
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 3; j++) {
-            fila1[j] = frente[0][j];
-            fila2[j] = frente[1][j];
-            fila3[j] = frente[2][j];
+            if (i == 0) {
+                fila1[j] = frente[0][j];
+            }
+            if (i == 1) {
+                fila2[j] = frente[1][j];
+            }
+            if (i == 2){
+                fila3[j] = frente[2][j];
+            }
         }
     }//FOR
     for (int i = 0; i < 3; i++) {
@@ -796,9 +882,15 @@ void u(int** frente, int** arriba, int** izquierda, int** derecha, int** abajo) 
     int fila3[3];
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 3; j++) {
-            fila1[j] = frente[0][j];
-            fila2[j] = frente[1][j];
-            fila3[j] = frente[2][j];
+            if (i == 0) {
+                fila1[j] = frente[0][j];
+            }
+            if (i == 1) {
+                fila2[j] = frente[1][j];
+            }
+            if (i == 2){
+                fila3[j] = frente[2][j];
+            }
         }
     }//FOR
     for (int i = 0; i < 3; i++) {
@@ -861,9 +953,15 @@ void B(int** frente, int** arriba, int** izquierda, int** derecha, int** abajo) 
     int fila3[3];
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 3; j++) {
-            fila1[j] = frente[0][j];
-            fila2[j] = frente[1][j];
-            fila3[j] = frente[2][j];
+            if (i == 0) {
+                fila1[j] = frente[0][j];
+            }
+            if (i == 1) {
+                fila2[j] = frente[1][j];
+            }
+            if (i == 2){
+                fila3[j] = frente[2][j];
+            }
         }
     }//FOR
     for (int i = 0; i < 3; i++) {
@@ -925,9 +1023,15 @@ void b(int** frente, int** arriba, int** izquierda, int** derecha, int** abajo) 
     int fila3[3];
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 3; j++) {
-            fila1[j] = frente[0][j];
-            fila2[j] = frente[1][j];
-            fila3[j] = frente[2][j];
+            if (i == 0) {
+                fila1[j] = frente[0][j];
+            }
+            if (i == 1) {
+                fila2[j] = frente[1][j];
+            }
+            if (i == 2){
+                fila3[j] = frente[2][j];
+            }
         }
     }//FOR
     for (int i = 0; i < 3; i++) {
@@ -989,9 +1093,15 @@ void R(int** frente, int** arriba, int** izquierda, int** derecha, int** abajo) 
     int fila3[3];
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 3; j++) {
-            fila1[j] = frente[0][j];
-            fila2[j] = frente[1][j];
-            fila3[j] = frente[2][j];
+            if (i == 0) {
+                fila1[j] = frente[0][j];
+            }
+            if (i == 1) {
+                fila2[j] = frente[1][j];
+            }
+            if (i == 2){
+                fila3[j] = frente[2][j];
+            }
         }
     }//FOR
     for (int i = 0; i < 3; i++) {
@@ -1053,9 +1163,15 @@ void r(int** frente, int** arriba, int** izquierda, int** derecha, int** abajo) 
     int fila3[3];
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 3; j++) {
-            fila1[j] = frente[0][j];
-            fila2[j] = frente[1][j];
-            fila3[j] = frente[2][j];
+            if (i == 0) {
+                fila1[j] = frente[0][j];
+            }
+            if (i == 1) {
+                fila2[j] = frente[1][j];
+            }
+            if (i == 2){
+                fila3[j] = frente[2][j];
+            }
         }
     }//FOR
     for (int i = 0; i < 3; i++) {
@@ -1118,9 +1234,15 @@ void L(int** frente, int** arriba, int** izquierda, int** derecha, int** abajo) 
     int fila3[3];
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 3; j++) {
-            fila1[j] = frente[0][j];
-            fila2[j] = frente[1][j];
-            fila3[j] = frente[2][j];
+            if (i == 0) {
+                fila1[j] = frente[0][j];
+            }
+            if (i == 1) {
+                fila2[j] = frente[1][j];
+            }
+            if (i == 2){
+                fila3[j] = frente[2][j];
+            }
         }
     }//FOR
     for (int i = 0; i < 3; i++) {
@@ -1182,9 +1304,15 @@ void l(int** frente, int** arriba, int** izquierda, int** derecha, int** abajo) 
     int fila3[3];
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 3; j++) {
-            fila1[j] = frente[0][j];
-            fila2[j] = frente[1][j];
-            fila3[j] = frente[2][j];
+            if (i == 0) {
+                fila1[j] = frente[0][j];
+            }
+            if (i == 1) {
+                fila2[j] = frente[1][j];
+            }
+            if (i == 2){
+                fila3[j] = frente[2][j];
+            }
         }
     }//FOR
     for (int i = 0; i < 3; i++) {
