@@ -25,24 +25,6 @@ void l(int**, int**, int**, int**, int**);
 
 
 int main(int argc, char const *argv[]) {
-    int** probar = new int*[3];
-    for (int i = 0; i < 3; ++i) {
-        probar[i] = new int[3];
-    }//Fin del for
-    for (int i = 0; i < 3; i++) {
-        for (int j = 0; j < 3; j++) {
-            if (i == 0) {
-                probar[i][j] = 1;
-            }
-            if (i == 1) {
-                probar[i][j] = 2;
-            }
-            if (i == 2) {
-                probar[i][j] = 3;
-            }
-        }
-    }
-
 
     int** frontal = new int*[3];
     for (int i = 0; i < 3; ++i) {
@@ -54,33 +36,33 @@ int main(int argc, char const *argv[]) {
         }
     }
 
-    int** trasera = new int*[3];
+    int** atras = new int*[3];
     for (int i = 0; i < 3; ++i) {
-        trasera[i] = new int[3];
+        atras[i] = new int[3];
     }//Fin del for
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 3; j++) {
-            trasera[i][j] = 2;
+            atras[i][j] = 2;
         }
     }
 
-    int** superior = new int*[3];
+    int** arriba = new int*[3];
     for (int i = 0; i < 3; ++i) {
-        superior[i] = new int[3];
+        arriba[i] = new int[3];
     }//Fin del for
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 3; j++) {
-            superior[i][j] = 3;
+            arriba[i][j] = 3;
         }
     }
 
-    int** inferior = new int*[3];
+    int** abajo = new int*[3];
     for (int i = 0; i < 3; ++i) {
-        inferior[i] = new int[3];
+        abajo[i] = new int[3];
     }//Fin del for
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 3; j++) {
-            inferior[i][j] = 4;
+            abajo[i][j] = 4;
         }
     }
 
@@ -104,10 +86,33 @@ int main(int argc, char const *argv[]) {
         }
     }
 
-    imprimirMatriz(probar);
-    F(probar, frontal, frontal, frontal, frontal);
-    imprimirMatriz(probar);
-    limpiarMemoria(probar);
+    cout << "Frontal" << endl;
+    imprimirMatriz(frontal);
+    cout << "Arriba" << endl;
+    imprimirMatriz(arriba);
+    cout << "Izquierda" << endl;
+    imprimirMatriz(izquierda);
+    cout << "Derecha" << endl;
+    imprimirMatriz(derecha);
+    cout << "Abajo" << endl;
+    imprimirMatriz(abajo);
+    cout << endl;
+    F(frontal, arriba, izquierda, derecha, abajo);
+    cout << "Frontal" << endl;
+    imprimirMatriz(frontal);
+    cout << "Arriba" << endl;
+    imprimirMatriz(arriba);
+    cout << "Izquierda" << endl;
+    imprimirMatriz(izquierda);
+    cout << "Derecha" << endl;
+    imprimirMatriz(derecha);
+    cout << "Abajo" << endl;
+    imprimirMatriz(abajo);
+    limpiarMemoria(frontal);
+    limpiarMemoria(arriba);
+    limpiarMemoria(izquierda);
+    limpiarMemoria(derecha);
+    limpiarMemoria(atras);
 
 
 
@@ -116,6 +121,7 @@ int main(int argc, char const *argv[]) {
 }//Fin del main
 
 void F(int** frente, int** arriba, int** izquierda, int** derecha, int** abajo) {
+    //Principal
     int fila1[3];
     int fila2[3];
     int fila3[3];
@@ -125,8 +131,7 @@ void F(int** frente, int** arriba, int** izquierda, int** derecha, int** abajo) 
             fila2[j] = frente[1][j];
             fila3[j] = frente[2][j];
         }
-    }
-
+    }//FOR
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 3; j++) {
             if (j == 0) {
@@ -139,7 +144,44 @@ void F(int** frente, int** arriba, int** izquierda, int** derecha, int** abajo) 
                 frente[i][j] = fila1[j];
             }
         }
-    }
+    }//FOR
+    int terceraFilaArriba[3];
+    int primeraColumnaDerecha[3];
+    int primeraFilaInferior[3];
+    int terceraColumnaIzquierda[3];
+    //arriba
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            if (i == 2) {
+                terceraFilaArriba[j] = arriba[i][j];
+            }
+            if (j == 0){
+                primeraColumnaDerecha[i] = derecha[i][j];
+            }
+            if (i == 0) {
+                primeraFilaInferior[j] = abajo[i][j];
+            }
+            if (j == 2) {
+                terceraColumnaIzquierda[i] = izquierda[i][j];
+            }
+        }
+    }//FOR
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            if (i == 2) {
+                arriba[i][j] = terceraColumnaIzquierda[j];
+            }
+            if (j == 0){
+                derecha[i][j] = terceraFilaArriba[i];
+            }
+            if (i == 0) {
+                abajo[i][j] = primeraColumnaDerecha[j];
+            }
+            if (j == 2) {
+                izquierda[i][j] = primeraFilaInferior[i];
+            }
+        }
+    }//FOR
 
 }
 
